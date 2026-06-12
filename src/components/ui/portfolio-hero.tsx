@@ -85,32 +85,12 @@ const BlurText: React.FC<BlurTextProps> = ({
   );
 };
 
-export default function PortfolioHero() {
+export default function PortfolioHero({ isDockOpen = false, toggleDock }: { isDockOpen?: boolean, toggleDock?: () => void }) {
   const [isDark, setIsDark] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
   }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        isMenuOpen &&
-        menuRef.current &&
-        buttonRef.current &&
-        !menuRef.current.contains(event.target as Node) &&
-        !buttonRef.current.contains(event.target as Node)
-      ) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isMenuOpen]);
 
   const toggleTheme = () => {
     const newTheme = !isDark;
@@ -121,15 +101,6 @@ export default function PortfolioHero() {
       document.documentElement.classList.remove("dark");
     }
   };
-
-  const menuItems = [
-    { label: "HOME", href: "#", highlight: true },
-    { label: "ABOUT", href: "#about" },
-    { label: "PROJECTS", href: "#projects" },
-    { label: "EXPERIENCE", href: "#experience" },
-    { label: "SKILLS", href: "#skills" },
-    { label: "CONTACT", href: "#contact" },
-  ];
 
   // We split the user's name if they have first and last name, or just use the first name for both if they don't
   const nameParts = portfolioData.hero.name.split(" ");
@@ -150,48 +121,17 @@ export default function PortfolioHero() {
           {/* Menu Button */}
           <div className="relative">
             <button
-              ref={buttonRef}
               type="button"
               className="p-2 transition-colors duration-300 z-50 text-neutral-500 hover:text-black dark:hover:text-white"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isDockOpen ? "Close menu" : "Open menu"}
+              onClick={() => toggleDock && toggleDock()}
             >
-              {isMenuOpen ? (
+              {isDockOpen ? (
                 <X className="w-8 h-8 transition-colors duration-300" strokeWidth={2} />
               ) : (
                 <Menu className="w-8 h-8 transition-colors duration-300" strokeWidth={2} />
               )}
             </button>
-
-            {isMenuOpen && (
-              <div
-                ref={menuRef}
-                className="absolute top-full left-0 w-[200px] md:w-[240px] border-none shadow-2xl mt-2 ml-4 p-4 rounded-lg z-[100]"
-                style={{
-                  backgroundColor: isDark ? "hsl(0 0% 0%)" : "hsl(0 0% 98%)",
-                }}
-              >
-                {menuItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="block text-lg md:text-xl font-bold tracking-tight py-1.5 px-2 cursor-pointer transition-colors duration-300"
-                    style={{
-                      color: item.highlight ? "#C3E41D" : isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#C3E41D";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = item.highlight ? "#C3E41D" : (isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)");
-                    }}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            )}
           </div>
 
           {/* Signature */}

@@ -82,6 +82,29 @@ export const portfolioData = {
       }
     ]
   },
+  achievements: {
+    title: "Achievements",
+    items: [
+      {
+        title: "Hackathon Winner",
+        date: "2023",
+        description: "First place in the Global Tech Innovators Hackathon for building an AI-powered accessibility tool.",
+        icon: "Trophy"
+      },
+      {
+        title: "Open Source Contributor",
+        date: "2022 - Present",
+        description: "Core contributor to several popular open-source React libraries with over 10k stars on GitHub.",
+        icon: "Star"
+      },
+      {
+        title: "AWS Certified Solutions Architect",
+        date: "2021",
+        description: "Achieved the associate level certification demonstrating expertise in designing distributed systems.",
+        icon: "Medal"
+      }
+    ]
+  },
   contact: {
     title: "Get in Touch",
     description: "Interested in working together? Let's build something amazing.",
