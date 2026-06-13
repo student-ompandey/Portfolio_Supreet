@@ -103,21 +103,9 @@ const BlurText: React.FC<BlurTextProps> = ({
 };
 
 export default function PortfolioHero({ isDockOpen = false, toggleDock }: { isDockOpen?: boolean, toggleDock?: () => void }) {
-  const [isDark, setIsDark] = useState(true);
-
   useEffect(() => {
     document.documentElement.classList.add("dark");
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    if (newTheme) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
 
   // We split the user's name if they have first and last name, or just use the first name for both if they don't
   const nameParts = portfolioData.hero.name.split(" ");
@@ -128,8 +116,8 @@ export default function PortfolioHero({ isDockOpen = false, toggleDock }: { isDo
     <div 
       className="min-h-screen text-foreground transition-colors"
       style={{
-        backgroundColor: isDark ? "hsl(0 0% 0%)" : "hsl(0 0% 98%)",
-        color: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
+        backgroundColor: "hsl(0 0% 0%)",
+        color: "hsl(0 0% 100%)",
       }}
     >
       {/* Header */}
@@ -139,7 +127,7 @@ export default function PortfolioHero({ isDockOpen = false, toggleDock }: { isDo
           <div className="relative">
             <button
               type="button"
-              className="p-2 transition-colors duration-300 z-50 text-neutral-500 hover:text-black dark:hover:text-white"
+              className="p-2 transition-colors duration-300 z-50 text-neutral-500 hover:text-white"
               aria-label={isDockOpen ? "Close menu" : "Open menu"}
               onClick={() => toggleDock && toggleDock()}
             >
@@ -152,26 +140,9 @@ export default function PortfolioHero({ isDockOpen = false, toggleDock }: { isDo
           </div>
 
           {/* Signature */}
-          <div className="text-4xl" style={{ color: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)", fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
+          <div className="text-4xl" style={{ color: "hsl(0 0% 100%)", fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
             {firstName.charAt(0)}
           </div>
-
-          {/* Theme Toggle */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="relative w-16 h-8 rounded-full hover:opacity-80 transition-opacity"
-            style={{ backgroundColor: isDark ? "hsl(0 0% 15%)" : "hsl(0 0% 90%)" }}
-            aria-label="Toggle theme"
-          >
-            <div
-              className="absolute top-1 left-1 w-6 h-6 rounded-full transition-transform duration-300"
-              style={{
-                backgroundColor: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
-                transform: isDark ? "translateX(2rem)" : "translateX(0)",
-              }}
-            />
-          </button>
         </nav>
       </header>
 
@@ -223,7 +194,7 @@ export default function PortfolioHero({ isDockOpen = false, toggleDock }: { isDo
               delay={150}
               animateBy="words"
               direction="top"
-              className="text-[15px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-center transition-colors duration-300 text-neutral-500 hover:text-black dark:hover:text-white"
+              className="text-[15px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-center transition-colors duration-300 text-neutral-500 hover:text-white"
               style={{ fontFamily: "'Antic', sans-serif" }}
             />
           </div>
@@ -238,7 +209,7 @@ export default function PortfolioHero({ isDockOpen = false, toggleDock }: { isDo
             document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
-          <ChevronDown className="w-5 h-5 md:w-8 md:h-8 text-neutral-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
+          <ChevronDown className="w-5 h-5 md:w-8 md:h-8 text-neutral-500 hover:text-white transition-colors duration-300" />
         </button>
 
         {/* Vertical MacOS Dock on the right side */}
