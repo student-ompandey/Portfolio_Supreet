@@ -3,8 +3,7 @@ import { Server, Layout, Database, Wrench, Code, Terminal, Smartphone } from 'lu
 import RadialOrbitalTimeline, { TimelineItem } from './ui/radial-orbital-timeline';
 import { portfolioData } from '../data/portfolioData';
 
-// Generate timeline data from portfolioData.skills
-// Manually mapping these into an interconnected web for the orbital visualization
+// Generate timeline data for the orbital visualization
 const generateTimelineData = (): TimelineItem[] => {
   return [
     {
@@ -12,20 +11,20 @@ const generateTimelineData = (): TimelineItem[] => {
       title: "React.js",
       date: "CORE",
       content: "Component-based UI development with hooks, state management, and modern best practices.",
-      category: "Frontend",
+      category: "Web & Frameworks",
       icon: Layout,
-      relatedIds: [2, 3, 4], // Links to Next.js, Tailwind, TypeScript
+      relatedIds: [2, 3, 7], // Links to Node.js, Tailwind, REST APIs
       status: "completed",
       energy: 95,
     },
     {
       id: 2,
-      title: "Next.js",
-      date: "ADVANCED",
-      content: "Server-side rendering, static site generation, and full-stack React framework integration.",
-      category: "Frontend",
+      title: "Node.js",
+      date: "CORE",
+      content: "Asynchronous, event-driven JavaScript runtime for scalable backend services and APIs.",
+      category: "Web & Frameworks",
       icon: Server,
-      relatedIds: [1, 5, 8], // Links to React, Node.js, Vercel
+      relatedIds: [1, 7], // Links to React, REST APIs
       status: "completed",
       energy: 90,
     },
@@ -33,67 +32,67 @@ const generateTimelineData = (): TimelineItem[] => {
       id: 3,
       title: "Tailwind CSS",
       date: "EXPERT",
-      content: "Utility-first CSS framework for rapid, highly-customizable UI development and dark mode.",
-      category: "Frontend",
+      content: "Utility-first CSS framework for rapid, highly-customizable UI development and responsive design.",
+      category: "Web & Frameworks",
       icon: Code,
-      relatedIds: [1, 4], // Links to React, TypeScript
+      relatedIds: [1], // Links to React
       status: "completed",
       energy: 100,
     },
     {
       id: 4,
-      title: "TypeScript",
+      title: "C++",
       date: "ADVANCED",
-      content: "Strongly typed JavaScript for scalable, reliable, and error-free application architectures.",
-      category: "Frontend",
+      content: "Strong foundation in data structures, algorithms, and object-oriented programming.",
+      category: "Languages",
       icon: Terminal,
-      relatedIds: [1, 2, 5], // Links to React, Next, Node
+      relatedIds: [5], // Links to Python
       status: "completed",
       energy: 85,
     },
     {
       id: 5,
-      title: "Node.js",
-      date: "CORE",
-      content: "Asynchronous, event-driven JavaScript runtime for scalable backend services and APIs.",
-      category: "Backend",
-      icon: Server,
-      relatedIds: [6, 7], // Links to Express, MongoDB
+      title: "Python",
+      date: "BASIC",
+      content: "Scripting, automation, and foundational machine learning/AI concepts.",
+      category: "Languages",
+      icon: Terminal,
+      relatedIds: [4, 6], // Links to C++, Azure
       status: "completed",
-      energy: 90,
+      energy: 75,
     },
     {
       id: 6,
-      title: "Express",
+      title: "Microsoft Azure",
+      date: "CERTIFIED",
+      content: "Cloud fundamentals, deployments, and distributed systems architecture.",
+      category: "Cloud & Tools",
+      icon: Database,
+      relatedIds: [2, 8], // Links to Node, Git
+      status: "completed",
+      energy: 80,
+    },
+    {
+      id: 7,
+      title: "REST APIs",
       date: "CORE",
-      content: "Fast, unopinionated, minimalist web framework for Node.js API development.",
-      category: "Backend",
-      icon: Code,
-      relatedIds: [5, 7], // Links to Node, MongoDB
+      content: "Designing and integrating robust, secure, and scalable backend APIs.",
+      category: "Web & Frameworks",
+      icon: Server,
+      relatedIds: [1, 2], // Links to React, Node
       status: "completed",
       energy: 90,
     },
     {
-      id: 7,
-      title: "MongoDB",
-      date: "CORE",
-      content: "NoSQL document database for flexible schema design and scalable data storage.",
-      category: "Backend",
-      icon: Database,
-      relatedIds: [5, 6], // Links to Node, Express
+      id: 8,
+      title: "Git & GitHub",
+      date: "TOOLS",
+      content: "Version control, team collaboration, and CI/CD workflow management.",
+      category: "Cloud & Tools",
+      icon: Wrench,
+      relatedIds: [1, 2, 6], // Links to React, Node, Azure
       status: "completed",
       energy: 85,
-    },
-    {
-      id: 8,
-      title: "Git & Vercel",
-      date: "TOOLS",
-      content: "Version control and seamless CI/CD platform deployments for modern web apps.",
-      category: "Tools",
-      icon: Wrench,
-      relatedIds: [2, 1], // Links to Next, React
-      status: "completed",
-      energy: 80,
     }
   ];
 };

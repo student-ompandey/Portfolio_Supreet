@@ -3,10 +3,10 @@ import { Home, User, Code, Briefcase, LayoutGrid, Trophy, Mail } from 'lucide-re
 import PortfolioHero from './components/ui/portfolio-hero';
 import About from './components/About';
 import Skills from './components/Skills.tsx';
-import Experience from './components/Experience';
+import Education from './components/Education.tsx';
 import Projects from './components/Projects.tsx';
 import Achievements from './components/Achievements.tsx';
-import Contact from './components/Contact';
+import Contact from './components/Contact.tsx';
 import Footer from './components/Footer.tsx';
 import MacOSDock from './components/ui/mac-os-dock.tsx';
 
@@ -14,7 +14,7 @@ const navApps = [
   { id: 'home', name: 'Home', icon: Home },
   { id: 'about', name: 'About', icon: User },
   { id: 'skills', name: 'Skills', icon: Code },
-  { id: 'experience', name: 'Experience', icon: Briefcase },
+  { id: 'education', name: 'Education', icon: Briefcase },
   { id: 'projects', name: 'Projects', icon: LayoutGrid },
   { id: 'achievements', name: 'Achievements', icon: Trophy },
   { id: 'contact', name: 'Contact', icon: Mail },
@@ -67,7 +67,7 @@ function App() {
       <main>
         <About />
         <Skills />
-        <Experience />
+        <Education />
         <Projects />
         <Achievements />
         <Contact />

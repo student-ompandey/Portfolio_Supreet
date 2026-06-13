@@ -87,7 +87,7 @@ export default function About() {
             {/* Image Container */}
             <div className="relative aspect-[3/4] bg-neutral-900 overflow-hidden z-10 grayscale hover:grayscale-0 transition-all duration-500">
               <img 
-                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" 
+                src="/Supreet.jpeg" 
                 alt="Profile Portrait" 
                 className="w-full h-full object-cover"
               />
