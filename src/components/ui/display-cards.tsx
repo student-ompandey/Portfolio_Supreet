@@ -26,7 +26,7 @@ function DisplayCard({
   return (
     <div
       className={cn(
-        "display-card-element relative flex h-56 w-[22rem] sm:w-[28rem] -skew-y-[8deg] select-none flex-col justify-between border border-neutral-800 bg-neutral-950 px-6 py-6 transition-colors duration-700 group hover:border-[#C3E41D] [&>*]:flex [&>*]:items-center [&>*]:gap-3 shadow-[0_0_40px_rgba(0,0,0,0.8)]",
+        "display-card-element relative flex min-h-[16rem] w-[22rem] sm:w-[28rem] -skew-y-[8deg] select-none flex-col justify-between border border-neutral-800 bg-neutral-950 px-6 py-6 transition-colors duration-700 group hover:border-[#C3E41D] [&>*]:flex [&>*]:items-center [&>*]:gap-3 shadow-[0_0_40px_rgba(0,0,0,0.8)]",
         className
       )}
     >
@@ -35,11 +35,11 @@ function DisplayCard({
 
       <div className="relative z-10 w-full justify-between items-start">
         <div className="flex items-center gap-4">
-          <span className={cn("relative inline-flex items-center justify-center w-12 h-12 bg-black border border-neutral-800 transition-colors group-hover:bg-[#C3E41D] group-hover:text-black group-hover:border-[#C3E41D]", iconClassName)}>
+          <span className={cn("relative inline-flex items-center justify-center min-w-12 h-12 bg-black border border-neutral-800 transition-colors group-hover:bg-[#C3E41D] group-hover:text-black group-hover:border-[#C3E41D]", iconClassName)}>
             {icon}
           </span>
           <p 
-            className={cn("text-xl md:text-2xl font-bold uppercase tracking-tight", titleClassName)}
+            className={cn("text-lg md:text-xl font-bold uppercase tracking-tight", titleClassName)}
             style={{ fontFamily: "'Fira Code', monospace" }}
           >
             {title}
@@ -48,7 +48,7 @@ function DisplayCard({
       </div>
       
       <p 
-        className="text-lg text-neutral-400 leading-relaxed relative z-10 mt-4 whitespace-normal line-clamp-3"
+        className="text-base md:text-lg text-neutral-400 leading-relaxed relative z-10 mt-4 whitespace-normal"
         style={{ fontFamily: "'Antic', sans-serif" }}
       >
         {description}

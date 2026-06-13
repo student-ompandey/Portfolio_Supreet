@@ -48,8 +48,7 @@ export default function Achievements() {
     cards.forEach((card, i) => {
       // Assuming 3 cards: indices 0, 1, 2. 
       // Card 0 moves UP, Card 1 stays CENTER, Card 2 moves DOWN.
-      // Card height is ~224px (h-56). Using 250px spacing.
-      const yOffset = (i - 1) * 260; 
+      const yOffset = (i - 1) * 320; 
 
       tl.to(card, {
         x: 0, // Align them to center horizontally
