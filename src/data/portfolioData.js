@@ -76,7 +76,7 @@ export const portfolioData = {
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
         tech: ["React.js", "Node.js", "OpenAI API"],
         github: "https://github.com/supreetsinha4321-glitch",
-        live: "#"
+        live: "https://gdg-solution.vercel.app/"
       },
       {
         title: "Personal Portfolio Website",
@@ -84,7 +84,7 @@ export const portfolioData = {
         image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
         tech: ["React.js", "Tailwind CSS", "JavaScript"],
         github: "https://github.com/supreetsinha4321-glitch",
-        live: "#"
+        live: "https://portfolio-supreet.vercel.app/"
       }
     ]
   },
